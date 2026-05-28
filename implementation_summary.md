@@ -1,12 +1,12 @@
 # Implementation Summary
-## LLM-as-Judge Evaluation Pipeline — Kairos_new
+## LLM-as-Judge Evaluation Pipeline — Consulting firm
 **Author:** Lucas Barrios | **Date:** May 2026
 
 ---
 
-## What We Built
+## What we Built
 
-We implemented a standalone LLM-as-judge evaluation pipeline in Python (`llm_judge_evaluation.py`) targeting the most critical failure mode of the Kairos_new competitive intelligence platform: the INSUFFICIENT_DATA hallucination scenario. The pipeline uses the OpenAI API with `gpt-4o-mini` as the judge model and evaluates model responses against four criteria — factual integrity, transparency of failure, actionability, and professional tone — derived directly from the architectural analysis of the Kairos_new codebase. The judge prompt includes a hard gate on the factual integrity criterion: any response containing fabricated claims about the target company is automatically capped at a score of 1, regardless of performance on other criteria.
+We implemented a standalone LLM-as-judge evaluation pipeline in Python (`llm_judge_evaluation.py`) targeting the most critical failure mode of this consukting firm's competitive intelligence platform: the INSUFFICIENT_DATA hallucination scenario. The pipeline uses the OpenAI API with `gpt-4o-mini` as the judge model and evaluates model responses against four criteria — factual integrity, transparency of failure, actionability, and professional tone — derived directly from the architectural analysis of the Kairos_new codebase. The judge prompt includes a hard gate on the factual integrity criterion: any response containing fabricated claims about the target company is automatically capped at a score of 1, regardless of performance on other criteria.
 
 The dataset comprises five hand-crafted test cases spanning the full scoring range from 1 (deliberate fabrication) to 5 (perfect response), with each case designed to test a specific failure pattern observed in the system's architecture. Each test case is evaluated three times at temperature 0 to surface judge variance — a key calibration requirement identified during the evaluation design phase. Results are written to `evaluation_results.json` with full structured output: per-run scores, criteria assessments, token usage, elapsed time, and a variance flag that automatically identifies cases requiring human review. Total cost for a full 15-call run (5 cases × 3 runs) is approximately $0.003 at gpt-4o-mini pricing.
 
