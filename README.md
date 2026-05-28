@@ -1,5 +1,5 @@
 # lab_llm_judges_Lucas_Barrios
-**Ironhack AI Consulting Program — Week 7: Model Evaluation**
+**Ironhack AI Consulting Program — Week 6: Model Evaluation**
 **Author:** Lucas Barrios | **Date:** May 2026
 
 ---
