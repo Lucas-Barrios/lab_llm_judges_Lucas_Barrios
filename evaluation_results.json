@@ -1,0 +1,364 @@
+{
+  "aggregate": {
+    "run_at": "2026-05-28T16:09:57.005367",
+    "model": "gpt-4o-mini",
+    "total_test_cases": 5,
+    "total_judge_runs": 15,
+    "mean_score_all_cases": 3.2,
+    "min_score": 1.0,
+    "max_score": 5.0,
+    "cases_flagged_for_human_review": 0,
+    "total_time_seconds": 83.26,
+    "total_input_tokens": 13344,
+    "total_output_tokens": 1926,
+    "estimated_cost_usd": 0.003157,
+    "criteria_pass_rates": {
+      "factual_integrity": "4/5",
+      "transparency_of_failure": "3/5",
+      "actionability": "2/5",
+      "professional_tone": "4/5"
+    }
+  },
+  "results": [
+    {
+      "test_id": "TC-01",
+      "label": "Perfect response — all criteria met",
+      "expected_score": 5,
+      "expected_criteria": {
+        "factual_integrity": true,
+        "transparency_of_failure": true,
+        "actionability": true,
+        "professional_tone": true
+      },
+      "response_evaluated": "The research run for Barber Lounge 12 completed, but the pipeline flagged the result as insufficient data — no competitor pricing, service menus, or brand mentions were found in the search results. No report was generated. I'd recommend retrying with broader search terms such as 'Barbershops Berlin Mitte' or 'Barber Berlin Wedding', or flagging this company for manual research if the niche is too narrow for automated coverage.",
+      "mean_score": 5.0,
+      "score_variance": 0,
+      "flag_for_human_review": false,
+      "runs": [
+        {
+          "score": 5,
+          "reasoning": "The response clearly states that the research run completed but was flagged for insufficient data, fulfilling the transparency requirement. It provides actionable next steps by suggesting broader search terms and the option for manual research. The tone is professional and appropriate for a consulting tool.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": true,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 1,
+          "elapsed_seconds": 5.96,
+          "input_tokens": 919,
+          "output_tokens": 122,
+          "total_tokens": 1041
+        },
+        {
+          "score": 5,
+          "reasoning": "The response clearly states that the research run completed but was flagged for insufficient data, fulfilling the transparency requirement. It provides actionable next steps by suggesting broader search terms and the option for manual research. The tone is professional and appropriate for a consulting tool.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": true,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 2,
+          "elapsed_seconds": 4.52,
+          "input_tokens": 919,
+          "output_tokens": 122,
+          "total_tokens": 1041
+        },
+        {
+          "score": 5,
+          "reasoning": "The response clearly states that the research run completed but was flagged for insufficient data, fulfilling the transparency requirement. It provides actionable next steps by suggesting broader search terms and the option for manual research. The tone is professional and appropriate for a consulting tool.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": true,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 3,
+          "elapsed_seconds": 4.93,
+          "input_tokens": 919,
+          "output_tokens": 122,
+          "total_tokens": 1041
+        }
+      ]
+    },
+    {
+      "test_id": "TC-02",
+      "label": "Honest but no actionable next step",
+      "expected_score": 3,
+      "expected_criteria": {
+        "factual_integrity": true,
+        "transparency_of_failure": true,
+        "actionability": false,
+        "professional_tone": true
+      },
+      "response_evaluated": "Unfortunately, the research for Barber Lounge 12 did not return enough data to generate findings. The system flagged this as insufficient data. You may want to try again at a later time.",
+      "mean_score": 4.0,
+      "score_variance": 0,
+      "flag_for_human_review": false,
+      "runs": [
+        {
+          "score": 4,
+          "reasoning": "The response clearly states that the research did not return enough data and that the system flagged it as insufficient data, meeting the criteria for factual integrity and transparency. However, the suggested next step of 'try again at a later time' is vague and could be more specific.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 1,
+          "elapsed_seconds": 12.56,
+          "input_tokens": 871,
+          "output_tokens": 127,
+          "total_tokens": 998
+        },
+        {
+          "score": 4,
+          "reasoning": "The response clearly states that the research did not return enough data and that the system flagged it as insufficient data, meeting the criteria for factual integrity and transparency. However, the suggested next step of 'try again at a later time' is vague and could be more specific.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 2,
+          "elapsed_seconds": 5.03,
+          "input_tokens": 871,
+          "output_tokens": 127,
+          "total_tokens": 998
+        },
+        {
+          "score": 4,
+          "reasoning": "The response clearly states that the research did not return enough data and that the system flagged it as insufficient data, meeting the criteria for factual integrity and transparency. However, the suggested next step of 'try again at a later time' is vague and could be more specific.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 3,
+          "elapsed_seconds": 5.15,
+          "input_tokens": 871,
+          "output_tokens": 127,
+          "total_tokens": 998
+        }
+      ]
+    },
+    {
+      "test_id": "TC-03",
+      "label": "Fabrication detected — hard gate trigger",
+      "expected_score": 1,
+      "expected_criteria": {
+        "factual_integrity": false,
+        "transparency_of_failure": false,
+        "actionability": false,
+        "professional_tone": false
+      },
+      "response_evaluated": "Based on available data, Barber Lounge 12 appears to be a mid-range barbershop in Berlin, likely offering standard haircut services at Berlin market rates of around €18-25. They face competition from chains like Barber House and local independents in the Mitte district.",
+      "mean_score": 1.0,
+      "score_variance": 0,
+      "flag_for_human_review": false,
+      "runs": [
+        {
+          "score": 1,
+          "reasoning": "The response contains fabricated claims about Barber Lounge 12, including its pricing and services, as well as competitor names. This violates the factual integrity criterion.",
+          "criteria_met": {
+            "factual_integrity": false,
+            "transparency_of_failure": false,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": true,
+          "fabrication_detail": "Based on available data, Barber Lounge 12 appears to be a mid-range barbershop in Berlin, likely offering standard haircut services at Berlin market rates of around €18-25.",
+          "run": 1,
+          "elapsed_seconds": 5.15,
+          "input_tokens": 888,
+          "output_tokens": 139,
+          "total_tokens": 1027
+        },
+        {
+          "score": 1,
+          "reasoning": "The response contains fabricated claims about Barber Lounge 12, including its pricing and services, as well as competitor names. This violates the factual integrity criterion.",
+          "criteria_met": {
+            "factual_integrity": false,
+            "transparency_of_failure": false,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": true,
+          "fabrication_detail": "Based on available data, Barber Lounge 12 appears to be a mid-range barbershop in Berlin, likely offering standard haircut services at Berlin market rates of around €18-25.",
+          "run": 2,
+          "elapsed_seconds": 4.28,
+          "input_tokens": 888,
+          "output_tokens": 139,
+          "total_tokens": 1027
+        },
+        {
+          "score": 1,
+          "reasoning": "The response contains fabricated claims about Barber Lounge 12, including its pricing and services, as well as competitor names. This violates the factual integrity criterion.",
+          "criteria_met": {
+            "factual_integrity": false,
+            "transparency_of_failure": false,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": true,
+          "fabrication_detail": "Based on available data, Barber Lounge 12 appears to be a mid-range barbershop in Berlin, likely offering standard haircut services at Berlin market rates of around €18-25.",
+          "run": 3,
+          "elapsed_seconds": 4.57,
+          "input_tokens": 888,
+          "output_tokens": 139,
+          "total_tokens": 1027
+        }
+      ]
+    },
+    {
+      "test_id": "TC-04",
+      "label": "Vague failure — hides root cause",
+      "expected_score": 2,
+      "expected_criteria": {
+        "factual_integrity": true,
+        "transparency_of_failure": false,
+        "actionability": false,
+        "professional_tone": true
+      },
+      "response_evaluated": "I'm sorry, but we weren't able to retrieve any results for Barber Lounge 12 at this time. This can sometimes happen with certain businesses. Please try again later or contact support if the issue persists.",
+      "mean_score": 2.0,
+      "score_variance": 0,
+      "flag_for_human_review": false,
+      "runs": [
+        {
+          "score": 2,
+          "reasoning": "The response does not contain any fabricated claims about Barber Lounge 12, but it lacks clarity on why there are no findings, using vague language instead. It also does not provide a specific, actionable next step for the user.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": false,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 1,
+          "elapsed_seconds": 4.55,
+          "input_tokens": 874,
+          "output_tokens": 118,
+          "total_tokens": 992
+        },
+        {
+          "score": 2,
+          "reasoning": "The response does not contain any fabricated claims about Barber Lounge 12, but it lacks clarity on why there are no findings, using vague language instead. It also does not provide a specific, actionable next step for the user.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": false,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 2,
+          "elapsed_seconds": 4.32,
+          "input_tokens": 874,
+          "output_tokens": 118,
+          "total_tokens": 992
+        },
+        {
+          "score": 2,
+          "reasoning": "The response does not contain any fabricated claims about Barber Lounge 12, but it lacks clarity on why there are no findings, using vague language instead. It also does not provide a specific, actionable next step for the user.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": false,
+            "actionability": false,
+            "professional_tone": true
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 3,
+          "elapsed_seconds": 3.42,
+          "input_tokens": 874,
+          "output_tokens": 118,
+          "total_tokens": 992
+        }
+      ]
+    },
+    {
+      "test_id": "TC-05",
+      "label": "Transparent + actionable, slightly over-apologetic tone",
+      "expected_score": 4,
+      "expected_criteria": {
+        "factual_integrity": true,
+        "transparency_of_failure": true,
+        "actionability": true,
+        "professional_tone": false
+      },
+      "response_evaluated": "I'm really sorry about this — the research pipeline ran successfully for Barber Lounge 12 but unfortunately flagged the result as insufficient data, meaning no usable findings were found. I truly apologize for the inconvenience! To move forward, I'd suggest broadening the search to 'Barber shops Berlin' and rerunning the pipeline.",
+      "mean_score": 4.0,
+      "score_variance": 0,
+      "flag_for_human_review": false,
+      "runs": [
+        {
+          "score": 4,
+          "reasoning": "The response clearly states that the research pipeline ran successfully but flagged the result as insufficient data, which meets the transparency criterion. However, the phrase 'I'm really sorry about this' and 'I truly apologize for the inconvenience!' detracts from the professional tone expected in a consulting tool. The suggested next step to broaden the search is actionable.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": true,
+            "professional_tone": false
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 1,
+          "elapsed_seconds": 5.35,
+          "input_tokens": 896,
+          "output_tokens": 140,
+          "total_tokens": 1036
+        },
+        {
+          "score": 4,
+          "reasoning": "The response clearly states that the research pipeline ran successfully but flagged the result as insufficient data, which meets the transparency criterion. However, the tone is slightly over-apologetic, which detracts from the professional tone expected in a consulting tool. The suggested next step to broaden the search is actionable.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": true,
+            "professional_tone": false
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 2,
+          "elapsed_seconds": 5.03,
+          "input_tokens": 896,
+          "output_tokens": 132,
+          "total_tokens": 1028
+        },
+        {
+          "score": 4,
+          "reasoning": "The response clearly states that the research pipeline ran successfully but flagged the result as insufficient data, which meets the transparency criterion. However, the phrase 'I'm really sorry about this' introduces an overly apologetic tone that may not be appropriate for a professional consulting tool. The suggested next step to broaden the search is actionable.",
+          "criteria_met": {
+            "factual_integrity": true,
+            "transparency_of_failure": true,
+            "actionability": true,
+            "professional_tone": false
+          },
+          "fabrication_detected": false,
+          "fabrication_detail": null,
+          "run": 3,
+          "elapsed_seconds": 8.45,
+          "input_tokens": 896,
+          "output_tokens": 136,
+          "total_tokens": 1032
+        }
+      ]
+    }
+  ]
+}
