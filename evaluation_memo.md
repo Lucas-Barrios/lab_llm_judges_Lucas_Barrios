@@ -1,13 +1,13 @@
 # Evaluation Memo
-## Kairos_new Competitive Intelligence Pipeline
+## Consulting Firm's Competitive Intelligence Pipeline
 
 ---
 
 ```
-TO:      Lucas Barrios, AI & Digitalization Consultant — Kairos Consulting Group
-FROM:    Kairos Internal Evaluation Team
+TO:      Isabella Bicalho, AI & Digitalization Consultant as a Consulting firm 
+FROM:    Lucas Barrios External Evaluator
 DATE:    May 28, 2026
-SUBJECT: LLM Evaluation Results — Kairos_new Competitive Intelligence Pipeline
+SUBJECT: LLM Evaluation Results — Consulting Firm's Competitive Intelligence Pipeline
 CLASS:   Internal Use Only
 ```
 
@@ -15,13 +15,13 @@ CLASS:   Internal Use Only
 
 ## Executive Summary
 
-This evaluation assessed the reliability, factual integrity, and failure transparency of two large language models — Claude Sonnet 4.6 and GPT-4o — when used to drive the conversational and status-reporting layer of the Kairos_new competitive intelligence platform. The evaluation was commissioned to surface whether either model could be trusted in production given five known architectural failure modes: silent pipeline failures, fuzzy status detection, dead PDF parameters, cross-database inconsistency, and a Vercel serverless process boundary incompatibility. Under the conditions of this evaluation and against the five custom prompts designed for this scenario, Claude Sonnet 4.6 outperformed GPT-4o on factual integrity and failure transparency, with meaningful differences on the two highest-risk prompts.
+This evaluation assessed the reliability, factual integrity, and failure transparency of two large language models — Claude Sonnet 4.6 and GPT-4o — when used to drive the conversational and status-reporting layer of the competitive intelligence platform of a consulting firm. The evaluation was commissioned to surface whether either model could be trusted in production given five known architectural failure modes: silent pipeline failures, fuzzy status detection, dead PDF parameters, cross-database inconsistency, and a Vercel serverless process boundary incompatibility. Under the conditions of this evaluation and against the five custom prompts designed for this scenario, Claude Sonnet 4.6 outperformed GPT-4o on factual integrity and failure transparency, with meaningful differences on the two highest-risk prompts.
 
 ---
 
 ## Methodology
 
-No existing public benchmark was applied as-is. Three benchmarks were identified as methodologically relevant — BFCL (tool-call validation), SWE-bench Verified (issue-to-patch testing), and GAIA (end-to-end verifiable task completion) — but none mapped directly to the Kairos_new architecture. Instead, their evaluation structures informed the design of five custom evaluation prompts, each targeting a specific failure mode documented during architectural analysis of the Kairos_new codebase. This approach follows the principle that benchmark selection must be driven by task similarity to the production use case, not by leaderboard prominence.
+No existing public benchmark was applied as-is. Three benchmarks were identified as methodologically relevant — BFCL (tool-call validation), SWE-bench Verified (issue-to-patch testing), and GAIA (end-to-end verifiable task completion) — but none mapped directly to this consulting firm's architecture. Instead, their evaluation structures informed the design of five custom evaluation prompts, each targeting a specific failure mode documented during architectural analysis of the consulting firm's codebase. This approach follows the principle that benchmark selection must be driven by task similarity to the production use case, not by leaderboard prominence.
 
 Each prompt was tested against both models at temperature 0 with identical system context. An LLM-as-judge prompt was used for automated scoring on Criteria 1–4 (factual integrity, transparency of failure, actionability, professional tone), with the judge running each evaluation three times to surface variance. Prompts #1 and #4 — the fire-and-forget 200 response and the INSUFFICIENT_DATA hallucination scenario — also received human evaluation passes, as these represent the highest liability scenarios for a client-facing consulting tool.
 
@@ -55,7 +55,7 @@ Reproducibility cannot be guaranteed. Per known limitations of LLM evaluation, t
 
 ## Recommendation
 
-Under the conditions of this evaluation — five prompts targeting known architectural failure modes of the Kairos_new pipeline, using an LLM-as-judge with human review on the two highest-risk scenarios — Claude Sonnet 4.6 is the recommended model for the conversational and status-reporting layer of this platform. The recommendation is driven specifically by its significantly lower fabrication rate on the INSUFFICIENT_DATA scenario, which represents the highest client-trust liability in the current architecture. This recommendation carries medium confidence: the evaluation set is small and the judge has known self-preference bias. Before deploying to a client-facing context, a second evaluation round with GPT-4o and a neutral judge model (e.g., Gemini 1.5 Pro) is advised to validate the fabrication finding independently.
+Under the conditions of this evaluation — five prompts targeting known architectural failure modes of this consulting firm's pipeline, using an LLM-as-judge with human review on the two highest-risk scenarios — Claude Sonnet 4.6 is the recommended model for the conversational and status-reporting layer of this platform. The recommendation is driven specifically by its significantly lower fabrication rate on the INSUFFICIENT_DATA scenario, which represents the highest client-trust liability in the current architecture. This recommendation carries medium confidence: the evaluation set is small and the judge has known self-preference bias. Before deploying to a client-facing context, a second evaluation round with GPT-4o and a neutral judge model (e.g., Gemini 1.5 Pro) is advised to validate the fabrication finding independently.
 
 ---
 
@@ -65,4 +65,4 @@ Latency and token consumption were tracked across all 30 scored evaluations. Cla
 
 ---
 
-*Kairos Consulting Group · Confidential — Internal Use Only · May 2026*
+*Consulting firm · Confidential — Internal Use Only · May 2026*
