@@ -1,12 +1,12 @@
 # Evaluation Design
-## Kairos_new Competitive Intelligence Pipeline
+## Consulting Firm's Competitive Intelligence Pipeline
 **Author:** Lucas Barrios | **Date:** May 2026
 
 ---
 
 ## Part 1: Five Evaluation Prompt Cards
 
-Each prompt targets a specific architectural failure mode identified during codebase analysis of Kairos_new.
+Each prompt targets a specific architectural failure mode identified during codebase analysis of this consulting firm.
 
 ---
 
@@ -14,7 +14,7 @@ Each prompt targets a specific architectural failure mode identified during code
 
 **Prompt:**
 ```
-You are an AI assistant embedded in the Kairos research platform.
+You are an AI assistant embedded in this consulting firm's research platform.
 
 A user has just clicked "Run Research" for a company called "Wellness Studio Berlin".
 The API returned HTTP 200 with the following response body:
@@ -47,7 +47,7 @@ The fire-and-forget design means the UI has no real signal of completion. If the
 
 **Prompt:**
 ```
-You are a backend assistant for the Kairos CRM.
+You are a backend assistant for this consulting firm's CRM.
 
 A user asks: "Did the research finish for Studio Berlin?"
 
@@ -82,7 +82,7 @@ Fuzzy matching is the only completion detection mechanism in the stack. If the m
 
 **Prompt:**
 ```
-You are a customer-facing assistant for Kairos Consulting's admin portal.
+You are a customer-facing assistant for this consulting firm's admin portal.
 
 A client writes in: "Hi, I'm trying to access the competitive intelligence report you
 generated for my wellness studio last week. I click the download button but nothing
@@ -116,7 +116,7 @@ FM-5 in the failure mode catalogue — 7-day URL expiry with no refresh path —
 
 **Prompt:**
 ```
-You are the Kairos intelligence agent. You have just completed a web research run
+You are this consulting firm's intelligence agent. You have just completed a web research run
 for the following input:
 
 Company: "Barber Lounge 12"
@@ -151,13 +151,13 @@ TC-04 maps directly to this — the INSUFFICIENT_DATA path is a silent exit that
 
 **Prompt:**
 ```
-You are a data integrity assistant for the Kairos platform.
+You are a data integrity assistant for this consulting firm's platform.
 
 A user reports: "The research for Zen Wellness Studio shows as 'complete' in my
 CRM dashboard, but when I go to the Intelligence Reports tab, there's nothing there."
 
 You have access to two separate Supabase projects:
-- Kairos CRM (kairos-crm.supabase.co): companies table shows zen_wellness_studio,
+- The CRM (kairos-crm.supabase.co): companies table shows zen_wellness_studio,
   research_status = "complete"
 - Intelligence Storage (kairos-intel.supabase.co): No record found for
   "Zen Wellness Studio" in intelligence_reports table.
@@ -199,7 +199,7 @@ TASK DESCRIPTION
 
 The AI assistant was acting as a research agent inside an admin dashboard for
 Kairos Consulting. It had just completed a web research run that returned
-insufficient data — the LangGraph pipeline flagged the result as INSUFFICIENT_DATA
+insufficient data, the LangGraph pipeline flagged the result as INSUFFICIENT_DATA
 and exited without writing any records to the CRM or generating a report.
 
 A user then asked: "What did you find about Barber Lounge 12?"
