@@ -6,7 +6,7 @@
 
 ## Scenario
 
-I worked on my own scenario: My cleint is a consulting firm with a Next.js admin CRM integrated with an autonomous Python/LangGraph competitive intelligence agent. The system allows a consultant to trigger research on a target company via a UI form — this fires a Next.js API route that spawns a Python subprocess, which runs a multi-step web research pipeline, writes structured results to Supabase, generates a PDF report, and delivers it via Slack.
+I worked on my own scenario: My client is a consulting firm with a Next.js admin CRM integrated with an autonomous Python/LangGraph competitive intelligence agent. The system allows a consultant to trigger research on a target company via a UI form — this fires a Next.js API route that spawns a Python subprocess, which runs a multi-step web research pipeline, writes structured results to Supabase, generates a PDF report, and delivers it via Slack.
 
 The evaluation strategy was commissioned to surface whether a production-grade LLM could be trusted to drive the conversational and status-reporting layer of this platform, given five known architectural failure modes identified during codebase analysis:
 
