@@ -1,5 +1,5 @@
 """
-Kairos_new LLM-as-Judge Evaluation Pipeline
+Consulting firm LLM-as-Judge Evaluation Pipeline
 Evaluates model responses against 5 architectural failure mode prompts.
 Uses gpt-4o-mini as judge. Saves results to evaluation_results.json.
 """
