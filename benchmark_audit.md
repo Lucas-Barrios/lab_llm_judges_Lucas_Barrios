@@ -1,12 +1,12 @@
 # Benchmark Audit
-## Kairos_new Competitive Intelligence Pipeline
+## Competitive Intelligence Pipeline
 **Author:** Lucas Barrios | **Date:** May 2026
 
 ---
 
 ## Overview
 
-This audit evaluates three public benchmarks for relevance to the Kairos_new evaluation scenario: a Next.js admin CRM integrated with an autonomous Python/LangGraph competitive intelligence agent. The system triggers research via UI, runs a Python subprocess, writes results to Supabase, generates a PDF report, and delivers it via Slack. Known architectural failure modes include silent pipeline failures, fuzzy status detection, a dead `--pdf` parameter, cross-database inconsistency, and a Vercel serverless process boundary incompatibility.
+This audit evaluates three public benchmarks for relevance to the consulting firm evaluation scenario I picked: a Next.js admin CRM integrated with an autonomous Python/LangGraph competitive intelligence agent. The system triggers research via UI, runs a Python subprocess, writes results to Supabase, generates a PDF report, and delivers it via Slack. Known architectural failure modes include silent pipeline failures, fuzzy status detection, a dead `--pdf` parameter, cross-database inconsistency, and a Vercel serverless process boundary incompatibility.
 
 No benchmark was found to be usable as-is. All three are recommended for **adaptation only** — borrowing their evaluation methodology and applying it to Kairos_new's specific architecture.
 
@@ -48,17 +48,17 @@ Use BFCL's multi-turn categories (V3+) as the evaluation template. Replace the g
 **Source:** https://www.swebench.com | Jimenez et al., ICLR 2024
 
 ### Why it seemed relevant
-Kairos_new is built on a real GitHub codebase with real bugs already documented — TC-05 (dead `--pdf` flag), TC-13 (Vercel process kill), and TC-02 (silent Python crash) are exactly the type of real-world software issues SWE-bench was designed around. SWE-bench evaluates large language models on real-world software issues collected from GitHub — given a codebase and an issue, a language model is tasked with generating a patch that resolves the described problem. The benchmark's structure maps directly to the evaluation task of asking Claude Code to identify and fix the architectural bugs catalogued in the EVAL_STRATEGY.md. SWE-bench Verified is a human-validated section comprising 500 tasks, each executed within an isolated Docker container, with success determined by running unit tests against the generated patch.
+The system is built on a real GitHub codebase with real bugs already documented — TC-05 (dead `--pdf` flag), TC-13 (Vercel process kill), and TC-02 (silent Python crash) are exactly the type of real-world software issues SWE-bench was designed around. SWE-bench evaluates large language models on real-world software issues collected from GitHub — given a codebase and an issue, a language model is tasked with generating a patch that resolves the described problem. The benchmark's structure maps directly to the evaluation task of asking Claude Code to identify and fix the architectural bugs catalogued in the EVAL_STRATEGY.md. SWE-bench Verified is a human-validated section comprising 500 tasks, each executed within an isolated Docker container, with success determined by running unit tests against the generated patch.
 
 ### Contamination risk
 - [x] **High** — Model definitely saw this during training
 
-The original GitHub issues used to build the benchmark predate most major model training cutoffs. However, for Kairos_new's purposes this contamination risk is irrelevant — the benchmark dataset is not being used. Only its methodology (issue → patch → test) is borrowed and applied to a private codebase.
+The original GitHub issues used to build the benchmark predate most major model training cutoffs. However, for this scenario's purposes this contamination risk is irrelevant — the benchmark dataset is not being used. Only its methodology (issue → patch → test) is borrowed and applied to a private codebase.
 
 ### Saturation risk
 - [x] **Medium** — Some models achieve good scores
 
-SWE-bench-Live reveals a substantial performance gap compared to static benchmarks, meaning the static version is somewhat saturated for top models. For a specific private codebase like Kairos_new, saturation is not a concern.
+SWE-bench-Live reveals a substantial performance gap compared to static benchmarks, meaning the static version is somewhat saturated for top models. For a specific private codebase like the one of this scenario, saturation is not a concern.
 
 ### Format
 - [x] **Code generation** (patch generation + automated test execution)
@@ -77,7 +77,7 @@ Don't use the benchmark dataset. Use SWE-bench's evaluation methodology as the t
 **Source:** https://huggingface.co/spaces/gaia-benchmark/leaderboard | Mialon et al., 2023
 
 ### Why it seemed relevant
-GAIA targets the exact class of failure Kairos_new is most at risk for: an agent that appears to complete a task but produces wrong or incomplete results with no visible error. GAIA provides 466 real-world questions that require reasoning, multimodality, and tool use, exposing a 77% human-AI performance gap — the gap comes not from models refusing tasks, but from models silently producing incorrect outputs while appearing confident. This mirrors TC-04 (INSUFFICIENT_DATA path that silently exits) and TC-02 (Python crash invisible after 200 response). GAIA was introduced specifically to evaluate LLM agents on their ability to act as general-purpose AI assistants — requiring autonomous planning, deciding, and acting over multiple steps, which is precisely the capability Kairos_new's intelligence pipeline is built on.
+GAIA targets the exact class of failure the system of this consulting firm is most at risk for: an agent that appears to complete a task but produces wrong or incomplete results with no visible error. GAIA provides 466 real-world questions that require reasoning, multimodality, and tool use, exposing a 77% human-AI performance gap — the gap comes not from models refusing tasks, but from models silently producing incorrect outputs while appearing confident. This mirrors TC-04 (INSUFFICIENT_DATA path that silently exits) and TC-02 (Python crash invisible after 200 response). GAIA was introduced specifically to evaluate LLM agents on their ability to act as general-purpose AI assistants — requiring autonomous planning, deciding, and acting over multiple steps, which is precisely the capability this consulting firm's intelligence pipeline is built on.
 
 ### Contamination risk
 - [x] **Medium** — Some overlap possible
@@ -95,7 +95,7 @@ GAIA exposes a 77% human-AI performance gap — even frontier models struggle si
 ### Verdict
 - [x] **Adapt it**
 
-Don't run GAIA questions against Kairos_new directly — the domains don't match. Instead, use GAIA's question design structure to build Kairos-specific evaluation questions that follow the same pattern: questions with a single verifiable correct answer that require the system to chain multiple steps. Example: *"Trigger a research run for 'Studio 54 Wellness Berlin', wait for completion, and return the competitor count from the generated report."* This gives GAIA-style end-to-end correctness testing anchored to the actual pipeline.
+Don't run GAIA questions against the system of this consulting firm directly — the domains don't match. Instead, use GAIA's question design structure to build this firm's specific evaluation questions that follow the same pattern: questions with a single verifiable correct answer that require the system to chain multiple steps. Example: *"Trigger a research run for 'Studio 54 Wellness Berlin', wait for completion, and return the competitor count from the generated report."* This gives GAIA-style end-to-end correctness testing anchored to the actual pipeline.
 
 ---
 
@@ -107,4 +107,4 @@ Don't run GAIA questions against Kairos_new directly — the domains don't match
 | SWE-bench Verified | High (irrelevant) | Medium | Adapt — use issue→patch→test methodology |
 | GAIA | Medium | Low | Adapt — use verifiable multi-step task structure |
 
-None of these benchmarks is usable as-is for Kairos_new. The value is in borrowing their evaluation methodologies and applying them to the specific architectural failure modes documented in `EVAL_STRATEGY.md`.
+None of these benchmarks is usable as-is for this consulting firm. The value is in borrowing their evaluation methodologies and applying them to the specific architectural failure modes documented in `EVAL_STRATEGY.md`.
